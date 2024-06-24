@@ -26,7 +26,7 @@ The script `importArango.py` imports the structured data into an ArangoDB databa
 
 Before running the script, modify the database configuration in `importArango.py`. 
 
-```
+```python
 db = client.db('[Database Name]', username='[Database Username]', password='[Database Password]')
 ```
 > [!WARNING]
@@ -47,7 +47,7 @@ The example below is a graph that can be queried to visualise relationships from
 Once the graph has been created, you can visualise relationships and query the data within it. 
 
 The example below finds all Techniques and Tools related to an Actor, Campaign or Tool and returns a count to gain a better understanding of their prevelance
-```
+```sql
 FOR v IN ANY "intrusion-set/APT41" 
   GRAPH "adversarytotechnique" 
   LET inboundCount = LENGTH(FOR e IN INBOUND v._id GRAPH "adversarytotechnique" RETURN e) 
