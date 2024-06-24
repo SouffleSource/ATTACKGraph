@@ -16,7 +16,7 @@ This repository contains a set of scripts to fetch, parse, and import MITRE ATT&
 ## Usage
 
 ### Step 1: Install and Configure ArangoDB
-Using Docker, pull the latest [Official ArangoDB image](https://hub.docker.com/_/arangodb) and following the configuraation guidelines.
+Using Docker, pull the latest [Official ArangoDB image](https://hub.docker.com/_/arangodb) and follow the configuration guidelines.
 
 ### Step 2: Fetch MITRE ATT&CK Data
 The script `getData.py` fetches the latest MITRE ATT&CK data from the MITRE ATT&CK repository.
