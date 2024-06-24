@@ -15,13 +15,16 @@ This repository contains a set of scripts to fetch, parse, and import MITRE ATT&
 
 ## Usage
 
-### Step 1: Fetch MITRE ATT&CK Data
+### Step 1: Install and Configure ArangoDB
+Using Docker, pull the latest [Official ArangoDB image](https://hub.docker.com/_/arangodb) and following the configuraation guidelines.
+
+### Step 2: Fetch MITRE ATT&CK Data
 The script `getData.py` fetches the latest MITRE ATT&CK data from the MITRE ATT&CK repository.
 
-### Step 2: Parse and Structure the Data
+### Step 3: Parse and Structure the Data
 The script `parseStix.py` takes the fetched raw data, parses it, restructures it, and prepares it for import.
 
-### Step 3: Import Data into ArangoDB
+### Step 4: Import Data into ArangoDB
 The script `importArango.py` imports the structured data into an ArangoDB database. Ensure your ArangoDB instance is running and properly configured.
 
 Before running the script, modify the database configuration in `importArango.py`. 
@@ -36,14 +39,14 @@ Then run the script:
 ```
 python importArango.py
 ```
-### Step 4: Configure a Graph
+### Step 5: Configure a Graph
 Once the script has imported the data, configure relationships to form a graph. 
 
 The example below is a graph that can be queried to visualise relationships from Actors, Campaigns and Tools to their associated Techniques and Tools
 
 ![Screenshot of a graph settings](/assets/graphsettings.png)
 
-### Step 5: Query the Graph
+### Step 6: Query the Graph
 Once the graph has been created, you can visualise relationships and query the data within it. 
 
 The example below finds all Techniques and Tools related to an Actor, Campaign or Tool and returns a count to gain a better understanding of their prevelance
