@@ -1,4 +1,4 @@
-# ThreatAnalysis - MITRE ATT&CK in a Graph Database 
+# ATTACKGraph - MITRE ATT&CK in a Graph Database 
 
 This repository contains a set of scripts to fetch, parse, and import MITRE ATT&CK data into a multi-modal graph database (ArangoDB).
 
