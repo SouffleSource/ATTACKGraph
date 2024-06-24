@@ -3,9 +3,9 @@
 This repository contains a set of scripts to fetch, parse, and import MITRE ATT&CK data into a multi-modal graph database (ArangoDB).
 
 ## Overview
-- `getData.py`: Fetches the raw MITRE ATT&CK data.
-- `parseStix.py`: Parses the fetched data, structures it, and prepares it for import.
-- `importArango.py`: Imports the structured data into an ArangoDB database.
+- `getData.py`: Fetches the raw MITRE ATT&CK STIX data.
+- `parseStix.py`: Parses the fetched data, parses it into nodes and edges, and prepares it for import.
+- `importArango.py`: Imports the data into an ArangoDB database.
 
 ## Prerequisites
 
@@ -18,14 +18,8 @@ This repository contains a set of scripts to fetch, parse, and import MITRE ATT&
 ### Step 1: Install and Configure ArangoDB
 Using Docker, pull the latest [Official ArangoDB image](https://hub.docker.com/_/arangodb) and follow the configuration guidelines.
 
-### Step 2: Fetch MITRE ATT&CK Data
-The script `getData.py` fetches the latest MITRE ATT&CK data from the MITRE ATT&CK repository.
-
-### Step 3: Parse and Structure the Data
-The script `parseStix.py` takes the fetched raw data, parses it, restructures it, and prepares it for import.
-
-### Step 4: Import Data into ArangoDB
-The script `importArango.py` imports the structured data into an ArangoDB database. Ensure your ArangoDB instance is running and properly configured.
+### Step 2: Fetch, Format, and Load the Data into ArangoDB
+The script `master.py` creates the relevant directories and executes the scripts in order. Ensure your ArangoDB instance is running and properly configured.
 
 Before running the script, modify the database configuration in `importArango.py`. 
 
@@ -37,16 +31,16 @@ db = client.db('[Database Name]', username='[Database Username]', password='[Dat
 
 Then run the script:
 ```
-python importArango.py
+python master.py
 ```
-### Step 5: Configure a Graph
+### Step 3: Configure a Graph
 Once the script has imported the data, configure relationships to form a graph. 
 
 The example below is a graph that can be queried to visualise relationships from Actors, Campaigns and Tools to their associated Techniques and Tools
 
 ![Screenshot of a graph settings](/assets/graphsettings.png)
 
-### Step 6: Query the Graph
+### Step 4: Query the Graph
 Once the graph has been created, you can visualise relationships and query the data within it. 
 
 The example below finds all Techniques and Tools related to an Actor, Campaign or Tool and returns a count to gain a better understanding of their prevelance
